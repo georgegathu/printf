@@ -1,15 +1,16 @@
 #include "main.h"
 
 /**
- * print_HEX_aux - prints an hexgecimal number.
- * @num: number to print.
+ * printf_hex - prints an hexgecimal number.
+ * @val: arguments.
  * Return: counter.
  */
-int print_HEX_aux(unsigned int num)
+int printf_hex(va_list val)
 {
 	int i;
 	int *array;
 	int counter = 0;
+	unsigned int num = va_arg(val, unsigned int);
 	unsigned int temp = num;
 
 	while (num / 16 != 0)
@@ -28,7 +29,7 @@ int print_HEX_aux(unsigned int num)
 	for (i = counter - 1; i >= 0; i--)
 	{
 		if (array[i] > 9)
-			array[i] = array[i] + 7;
+			array[i] = array[i] + 39;
 		_putchar(array[i] + '0');
 	}
 	free(array);
